@@ -1,0 +1,12 @@
+{
+  "source": {
+    "include": [
+      "src/js"
+    ]
+  },
+  "opts": {
+    "encoding": "utf8",
+    "destination": "doc",
+    "recurse": true
+  }
+}
