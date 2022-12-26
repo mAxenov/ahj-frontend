@@ -1,6 +1,6 @@
 import sendRequest from './sendRequest';
 import sheckMark from '../../img/checkmark.svg';
-import edit from '../../img/edit.svg'
+import edit from '../../img/edit.svg';
 
 export default class TicketWidget {
   constructor(tickets, PopUpHandler) {
