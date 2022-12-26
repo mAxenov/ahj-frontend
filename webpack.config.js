@@ -38,7 +38,6 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            type: 'asset/resource'
           },
         ],
       },

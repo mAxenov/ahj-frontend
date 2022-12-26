@@ -1,4 +1,6 @@
 import sendRequest from './sendRequest';
+import sheckMark from '../../img/checkmark.svg';
+import edit from '../../img/edit.svg'
 
 export default class TicketWidget {
   constructor(tickets, PopUpHandler) {
@@ -31,12 +33,12 @@ export default class TicketWidget {
     ticketItem.innerHTML = `
         <button class="circle item__status">
         <img
-                src="../src/img/checkmark.svg" alt="checkmark"
+                src="${sheckMark}" alt="checkmark"
                 class="img__status" ${this.isHidden(ticketData.status)}></button>
         <div class="item__content"><span class="content_name">${ticketData.name}</span></div>
         <span class="item__date">${ticketData.created}</span>
         <button class="circle item__edit"><img
-                src="../src/img/edit.svg" alt="edit"
+                src="${edit}" alt="edit"
                 class="img__idit"></button>
         <button class="circle item__delete">X</button>
         `;
