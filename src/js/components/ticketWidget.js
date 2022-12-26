@@ -45,10 +45,9 @@ export default class TicketWidget {
 
   isHidden(value) {
     if (value === 'true') {
-
-    } else {
-      return 'hidden';
+      return;
     }
+    return 'hidden';
   }
 
   callBackCheckMark(e) {

@@ -14,6 +14,10 @@
     "no-shadow": "off",
     "import/no-cycle": "off",
     "class-methods-use-this": "off",
+    "guard-for-in": "off",
+    "consistent-return": "off",
+    "no-use-before-define": "off",
+    "no-nested-ternary": "off",
     "no-restricted-syntax": [
       "error",
       "LabeledStatement",

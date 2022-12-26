@@ -12,29 +12,6 @@ const tickets = document.querySelector('.tickets');
 
 let dataItem = null;
 
-const callbackShowPoPUp = function (e) {
-  e.preventDefault();
-  e.stopPropagation();
-  const ticketTitle = ticketAdd.querySelector('.ticket__title');
-  ticketAdd.classList.add('active');
-  ticketForm.classList.add('active');
-  const btnCansel = ticketAdd.querySelector('.btn__cansel');
-  const btnAdd = ticketAdd.querySelector('.btn__add');
-  btnCansel.addEventListener('click', callbackBtnCansel);
-  btnAdd.addEventListener('click', callbackBtnAdd);
-  ticketTitle.textContent = 'Добавить тикет';
-  if (this.closest('.tickets__item') !== null) {
-    const ticketItem = this.closest('.tickets__item');
-    ticketTitle.textContent = 'Изменить тикет';
-    sendRequest('get', `http://localhost:7070?method=ticketById&id=${ticketItem.getAttribute('data-id')}`)
-      .then((data) => {
-        dataItem = data;
-        nameInput.value = data.name;
-        descriptionInput.value = data.description;
-      });
-  }
-};
-
 const callbackBtnCansel = (e) => {
   e.preventDefault();
   nameInput.value = '';
@@ -61,6 +38,29 @@ const callbackBtnAdd = (e) => {
       ticketAdd.classList.remove('active');
       ticketForm.classList.remove('active');
     });
+};
+
+const callbackShowPoPUp = function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+  const ticketTitle = ticketAdd.querySelector('.ticket__title');
+  ticketAdd.classList.add('active');
+  ticketForm.classList.add('active');
+  const btnCansel = ticketAdd.querySelector('.btn__cansel');
+  const btnAdd = ticketAdd.querySelector('.btn__add');
+  btnCansel.addEventListener('click', callbackBtnCansel);
+  btnAdd.addEventListener('click', callbackBtnAdd);
+  ticketTitle.textContent = 'Добавить тикет';
+  if (this.closest('.tickets__item') !== null) {
+    const ticketItem = this.closest('.tickets__item');
+    ticketTitle.textContent = 'Изменить тикет';
+    sendRequest('get', `http://localhost:7070?method=ticketById&id=${ticketItem.getAttribute('data-id')}`)
+      .then((data) => {
+        dataItem = data;
+        nameInput.value = data.name;
+        descriptionInput.value = data.description;
+      });
+  }
 };
 const ticketWidget = new TicketWidget(tickets, callbackShowPoPUp);
 
